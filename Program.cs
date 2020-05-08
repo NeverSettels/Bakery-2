@@ -155,11 +155,7 @@ namespace Bakery
         TypeSlow("Sorry invalid amount");
         Ordering(breadOptions, pastryOptions, order);
       }
-
-
     }
-
-
     public static void Main()
     {
       Bread baguette = new Bread("Baguette", 2);
