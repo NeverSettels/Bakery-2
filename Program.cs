@@ -92,7 +92,7 @@ namespace Bakery
       }
 
     }
-    public static Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions)
+    public static Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions, Order order)
     {
       TypeFast("would You like to order bread or pastry? bread/pastry");
       string type = Console.ReadLine().ToLower();
@@ -100,24 +100,47 @@ namespace Bakery
       {
         TypeSlow("Enter the name of the bread you want");
         string selection = Console.ReadLine().ToLower();
-        switch (selection)
+        int amount = int.Parse(Console.ReadLine());
+        if (amount is int)
         {
-          case "baguette":
-            Console.WriteLine("Case 1");
-            break;
-          case "bagel":
-            Console.WriteLine("Case 2");
-            break;
-          case "loaf":
-            Console.WriteLine("Case 2");
-            break;
-          case "bolillio":
-            Console.WriteLine("Case 2");
-            break;
-          default:
-            Console.WriteLine("Default case");
-            break;
+          switch (selection)
+          {
+            case "baguette":
+              order.AddBread(breadOptions[0], amount);
+              break;
+            case "bagel":
+              order.AddBread(breadOptions[1], amount);
+              break;
+            case "loaf":
+              order.AddBread(breadOptions[2], amount);
+              break;
+            case "bolillio":
+              order.AddBread(breadOptions[3], amount);
+              break;
+            case "donut":
+              order.AddPastry(pastryOptions[0], amount);
+              break;
+            case "cookie":
+              order.AddPastry(pastryOptions[1], amount);
+              break;
+            case "muffin":
+              order.AddPastry(pastryOptions[2], amount);
+              break;
+            case "chocoroll":
+              order.AddPastry(pastryOptions[3], amount);
+              break;
+            default:
+              TypeSlow("Sorry invalid Type");
+              Ordering(breadOptions, pastryOptions, order);
+              break;
+          }
         }
+        else
+        {
+          TypeSlow("Sorry invalid amount");
+          Ordering(breadOptions, pastryOptions, order);
+        }
+
 
       }
       else if (type == "pastry")
