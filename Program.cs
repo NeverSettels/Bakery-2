@@ -78,6 +78,20 @@ namespace Bakery
         return false;
       }
     }
+    public static void DisplayOptions(List<Bread> breadOptions, List<Pastry> pastryOptions)
+    {
+      TypeSlow("Breads:  ");
+      foreach (Bread bread in breadOptions)
+      {
+        TypeSlow($"Name: {bread.TypeBread}, Price: ${bread.Price}");
+      }
+      TypeSlow("Pastries:  ");
+      foreach (Pastry pastry in pastryOptions)
+      {
+        TypeSlow($"Name: {pastry.TypePastry}, Price: ${pastry.Price}");
+      }
+
+    }
     public static void Main()
     {
       Bread baguette = new Bread("Baguette", 2);
@@ -97,6 +111,7 @@ namespace Bakery
       if (yesOrNo(res))
       {
         Order myOrder = new Order();
+        DisplayOptions(availabeBread, availabePastry);
 
       }
       else
