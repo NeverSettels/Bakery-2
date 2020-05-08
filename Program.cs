@@ -9,7 +9,10 @@ namespace Bakery
   public class Program
   {
     public static string _bakeryArt = @"
-      ____     _____________
+      ||||
+      ____
+      |  |
+      |__| _____________
   |==|____/_____________\___
   |==/UUUU|.---.---.---.|UUU\
   |=/UUUUU||___|___|___||UUUU\
@@ -17,7 +20,7 @@ namespace Bakery
   /UUUUUUU'============='UUUUUU\
  /UUUUUUUUUUUUUUUUUUUUUUUUUUUUUU\__
  |''''''''''''''''''''''''''''''|=
- |== ===  = =Pie==  == =  ==|-
+ |== === Pierre's Bakery == = ==|-
  |= _______________ =  _______ =|=
  |=|:::|:::|:::|:::| =|.-----.|=|-
  |=|^^^|^^^|^^^|^^^|1O|||_|_|||=|=
@@ -45,17 +48,49 @@ namespace Bakery
                                                                                                                          \OO    OO
                                                                                                                           \OOOOOO 
 ";
-    public static void Main()
+
+    public static void TypeFast(string str)
     {
-      Console.WriteLine("hello", ConsoleColor.Blue);
-      StyleSheet styleSheet = new StyleSheet(Color.Magenta);
-      styleSheet.AddStyle("([O])*", Color.Blue);
-      for (int i = 0; i < _logo.Length; i++)
+      for (int i = 0; i < str.Length; i++)
       {
-        Console.WriteStyled(_logo[i], styleSheet);
+        Console.Write(str[i]);
         System.Threading.Thread.Sleep(5);
       }
       Console.WriteLine();
+    }
+    public static void TypeSlow(string str)
+    {
+      for (int i = 0; i < str.Length; i++)
+      {
+        Console.Write(str[i]);
+        System.Threading.Thread.Sleep(50);
+      }
+      Console.WriteLine();
+    }
+    public static bool yesOrNo(string input)
+    {
+      if (input == "y")
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+    public static void Main()
+    {
+      TypeFast(_bakeryArt);
+      TypeSlow("You see Pierre's in the distance would you like to go in? y/n ");
+      string res = Console.ReadLine().ToLower();
+      if (yesOrNo(res))
+      {
+        // prigram logic 
+      }
+      else
+      {
+        TypeSlow("Good Bye! Have a great day and come back soon!");
+      }
     }
   }
 }
