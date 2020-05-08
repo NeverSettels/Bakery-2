@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using Console = Colorful.Console;
 using Bakery.Models;
@@ -33,21 +34,22 @@ namespace Bakery
     public static string _logo = @"
  _______   __                                        __                _______             __                                     
 |       \ |  \                                      |  \              |       \           |  \                                    
-| $$$$$$$\ \$$  ______    ______    ______    ______| $$_______       | $$$$$$$\  ______  | $$   __   ______    ______   __    __ 
-| $$__/ $$|  \ /      \  /      \  /      \  /      \\$/       \      | $$__/ $$ |      \ | $$  /  \ /      \  /      \ |  \  |  \
-| $$    $$| $$|  $$$$$$\|  $$$$$$\|  $$$$$$\|  $$$$$$\|  $$$$$$$      | $$    $$  \$$$$$$\| $$_/  $$|  $$$$$$\|  $$$$$$\| $$  | $$
-| $$$$$$$ | $$| $$    $$| $$   \$$| $$   \$$| $$    $$ \$$    \       | $$$$$$$\ /      $$| $$   $$ | $$    $$| $$   \$$| $$  | $$
-| $$      | $$| $$$$$$$$| $$      | $$      | $$$$$$$$ _\$$$$$$\      | $$__/ $$|  $$$$$$$| $$$$$$\ | $$$$$$$$| $$      | $$__/ $$
-| $$      | $$ \$$     \| $$      | $$       \$$     \|       $$      | $$    $$ \$$    $$| $$  \$$\ \$$     \| $$       \$$    $$
- \$$       \$$  \$$$$$$$ \$$       \$$        \$$$$$$$ \$$$$$$$        \$$$$$$$   \$$$$$$$ \$$   \$$  \$$$$$$$ \$$       _\$$$$$$$
-                                                                                                                        |  \__| $$
-                                                                                                                         \$$    $$
-                                                                                                                          \$$$$$$ 
+| OOOOOOO\ \OO  ______    ______    ______    ______| OO_______       | OOOOOOO\  ______  | OO   __   ______    ______   __    __ 
+| OO__/ OO|  \ /      \  /      \  /      \  /      \\O/       \      | OO__/ OO |      \ | OO  /  \ /      \  /      \ |  \  |  \
+| OO    OO| OO|  OOOOOO\|  OOOOOO\|  OOOOOO\|  OOOOOO\|  OOOOOOO      | OO    OO  \OOOOOO\| OO_/  OO|  OOOOOO\|  OOOOOO\| OO  | OO
+| OOOOOOO | OO| OO    OO| OO   \OO| OO   \OO| OO    OO \OO    \       | OOOOOOO\ /      OO| OO   OO | OO    OO| OO   \OO| OO  | OO
+| OO      | OO| OOOOOOOO| OO      | OO      | OOOOOOOO _\OOOOOO\      | OO__/ OO|  OOOOOOO| OOOOOO\ | OOOOOOOO| OO      | OO__/ OO
+| OO      | OO \OO     \| OO      | OO       \OO     \|       OO      | OO    OO \OO    OO| OO  \OO\ \OO     \| OO       \OO    OO
+ \OO       \OO  \OOOOOOO \OO       \OO        \OOOOOOO \OOOOOOO        \OOOOOOO   \OOOOOOO \OO   \OO  \OOOOOOO \OO       _\OOOOOOO
+                                                                                                                        |  \__| OO
+                                                                                                                         \OO    OO
+                                                                                                                          \OOOOOO 
 ";
     public static void Main()
     {
+      Console.WriteLine("hello", ConsoleColor.Blue);
       StyleSheet styleSheet = new StyleSheet(Color.Magenta);
-      styleSheet.AddStyle("([$])*", Color.Blue);
+      styleSheet.AddStyle("([O])*", Color.Blue);
       for (int i = 0; i < _logo.Length; i++)
       {
         Console.WriteStyled(_logo[i], styleSheet);
