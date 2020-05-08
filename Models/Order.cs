@@ -8,7 +8,7 @@ namespace Bakery.Models
     public List<Bread> BreadOrder { get; set; }
     public List<Pastry> PastryOrder { get; set; }
 
-    public void AddBread(Bread bread, int quantity)
+    public static void AddBread(Bread bread, int quantity)
     {
       for (int i = 0; i <= quantity; i++)
       {
@@ -22,10 +22,10 @@ namespace Bakery.Models
         PastryOrder.Add(pastry);
       }
     }
-    public int SumTotal()
+    public int SumTotal(Order order)
     {
-      int numBreads = BreadOrder.Count;
-      int numPastries = PastryOrder.Count;
+      int numBreads = order.BreadOrder.Count;
+      int numPastries = order.PastryOrder.Count;
       int breadTotal = 0;
       int pastryTotal = 0;
       int numFreeB = numBreads % 2;
@@ -33,9 +33,9 @@ namespace Bakery.Models
 
       for (int i = 0; i < numBreads - numFreeB; i++)
       {
-        breadTotal += BreadOrder[i].Price;
+        breadTotal += order.BreadOrder[i].Price;
       }
-      foreach (Pastry pastry in PastryOrder)
+      foreach (Pastry pastry in order.PastryOrder)
       {
         pastryTotal += pastry.Price;
       }

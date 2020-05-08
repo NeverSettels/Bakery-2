@@ -96,19 +96,20 @@ namespace Bakery
     {
       TypeSlow("Here is what you ordered: ");
       DisplayOptions(order.BreadOrder, order.PastryOrder);
-      TypeSlow($"And you Total is {order.SumTotal()}");
+      TypeSlow($"And you Total is {order.SumTotal(order)}");
       TypeSlow($"Thank you and have a great day!");
     }
-    public static Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions, Order order)
+    public static void Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions, Order order)
     {
       TypeSlow("Enter the name of what you want: ");
       string selection = Console.ReadLine().ToLower();
       int amount = int.Parse(Console.ReadLine());
-      if (amount is int)
+      if (amount > 0)
       {
         switch (selection)
         {
           case "baguette":
+            Console.WriteLine(breadOptions[0] + " " + amount.ToString());
             order.AddBread(breadOptions[0], amount);
             break;
           case "bagel":
@@ -138,7 +139,7 @@ namespace Bakery
             break;
         }
         TypeSlow("Would You like to add something else? y/n");
-        istring res = Console.ReadLine().ToLower();
+        string res = Console.ReadLine().ToLower();
         if (yesOrNo(res))
         {
           Ordering(breadOptions, pastryOptions, order);
@@ -169,7 +170,7 @@ namespace Bakery
       Pastry muffin = new Pastry("Muffin", 3);
       Pastry chocoroll = new Pastry("Chocoroll", 4);
       List<Bread> availabeBread = new List<Bread> { baguette, bagel, loaf, bolillo };
-      List<Pastry> availabePastry = new List<Pastry> { donut, cookie, muffin, choco };
+      List<Pastry> availabePastry = new List<Pastry> { donut, cookie, muffin, chocoroll };
 
       TypeFast(_bakeryArt);
       TypeSlow("You see Pierre's in the distance would you like to go in? y/n ");
@@ -179,9 +180,6 @@ namespace Bakery
         Order myOrder = new Order();
         DisplayOptions(availabeBread, availabePastry);
         Ordering(availabeBread, availabePastry, myOrder);
-
-
-
       }
       else
       {
