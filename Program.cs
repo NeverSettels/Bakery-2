@@ -80,12 +80,24 @@ namespace Bakery
     }
     public static void Main()
     {
+      Bread baguette = new Bread("Baguette", 2);
+      Bread sour = new Bread("Sour Dough", 3);
+      Bread loaf = new Bread("Loaf", 3);
+      Bread olive = new Bread("Olive Bread", 4);
+      Pastry donut = new Pastry("donut", 2);
+      Pastry bear = new Pastry("Bear Claw", 3);
+      Pastry muffin = new Pastry("Muffin", 3);
+      Pastry choco = new Pastry("Chocolate muffin", 4);
+      List<Bread> availabeBread = new List<Bread> { baguette, sour, loaf, olive };
+      List<Pastry> availabePastry = new List<Pastry> { donut, bear, muffin, choco };
+
       TypeFast(_bakeryArt);
       TypeSlow("You see Pierre's in the distance would you like to go in? y/n ");
       string res = Console.ReadLine().ToLower();
       if (yesOrNo(res))
       {
-        // prigram logic 
+        Order myOrder = new Order();
+
       }
       else
       {

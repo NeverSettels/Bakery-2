@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Bakery.Models
 {
   public class Pastry
@@ -6,9 +9,9 @@ namespace Bakery.Models
     public string TypePastry { get; set; }
     public int Price { get; set; }
 
-    public Pastry(string typePastry, int price, int miles)
+    public Pastry(string typePastry, int price)
     {
-      BypePastry = typePastry;
+      TypePastry = typePastry;
       Price = price;
     }
 

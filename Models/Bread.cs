@@ -1,4 +1,5 @@
-
+using System;
+using System.Collections.Generic;
 
 namespace Bakery.Models
 {
@@ -7,12 +8,9 @@ namespace Bakery.Models
     public string TypeBread { get; set; }
     public int Price { get; set; }
 
-
-    // Constructor
-
-    public Bread(string typeBread, int price, int miles)
+    public Bread(string typeBread, int price)
     {
-      BypeBread = typeBread;
+      TypeBread = typeBread;
       Price = price;
     }
   }
