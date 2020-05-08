@@ -92,6 +92,10 @@ namespace Bakery
       }
 
     }
+    public static void SummerizeOrder()
+    {
+
+    }
     public static Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions, Order order)
     {
       TypeSlow("Enter the name of what you want: ");
@@ -138,7 +142,7 @@ namespace Bakery
         }
         else
         {
-
+          SummerizeOrder();
         }
       }
       else
