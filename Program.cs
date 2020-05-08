@@ -92,12 +92,32 @@ namespace Bakery
       }
 
     }
-    public static Ordering()
+    public static Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions)
     {
       TypeFast("would You like to order bread or pastry? bread/pastry");
       string type = Console.ReadLine().ToLower();
       if (type == "bread")
       {
+        TypeSlow("Enter the name of the bread you want");
+        string selection = Console.ReadLine().ToLower();
+        switch (selection)
+        {
+          case "baguette":
+            Console.WriteLine("Case 1");
+            break;
+          case "bagel":
+            Console.WriteLine("Case 2");
+            break;
+          case "loaf":
+            Console.WriteLine("Case 2");
+            break;
+          case "bolillio":
+            Console.WriteLine("Case 2");
+            break;
+          default:
+            Console.WriteLine("Default case");
+            break;
+        }
 
       }
       else if (type == "pastry")
