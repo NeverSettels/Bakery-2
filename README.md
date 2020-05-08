@@ -30,8 +30,9 @@ _A small Console application that will allow a user to purchase bread and pastri
 1. Open up your terminal
 2. Navigate to the desired directory in which you want to clone this repository.
 3. Clone this repository.
-4. type dotnet run into the terminal
-5. Enjoy!
+4. Run **dotnet add package Colorful.Console --version 1.2.10** in the trminal
+5. Type **dotnet run** into the terminal
+6. Enjoy!
 
 ## **Known Bugs**
 
