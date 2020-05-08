@@ -94,65 +94,63 @@ namespace Bakery
     }
     public static Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions, Order order)
     {
-      TypeFast("would You like to order bread or pastry? bread/pastry");
-      string type = Console.ReadLine().ToLower();
-      if (type == "bread")
+      TypeSlow("Enter the name of what you want: ");
+      string selection = Console.ReadLine().ToLower();
+      int amount = int.Parse(Console.ReadLine());
+      if (amount is int)
       {
-        TypeSlow("Enter the name of the bread you want");
-        string selection = Console.ReadLine().ToLower();
-        int amount = int.Parse(Console.ReadLine());
-        if (amount is int)
+        switch (selection)
         {
-          switch (selection)
-          {
-            case "baguette":
-              order.AddBread(breadOptions[0], amount);
-              break;
-            case "bagel":
-              order.AddBread(breadOptions[1], amount);
-              break;
-            case "loaf":
-              order.AddBread(breadOptions[2], amount);
-              break;
-            case "bolillio":
-              order.AddBread(breadOptions[3], amount);
-              break;
-            case "donut":
-              order.AddPastry(pastryOptions[0], amount);
-              break;
-            case "cookie":
-              order.AddPastry(pastryOptions[1], amount);
-              break;
-            case "muffin":
-              order.AddPastry(pastryOptions[2], amount);
-              break;
-            case "chocoroll":
-              order.AddPastry(pastryOptions[3], amount);
-              break;
-            default:
-              TypeSlow("Sorry invalid Type");
-              Ordering(breadOptions, pastryOptions, order);
-              break;
-          }
+          case "baguette":
+            order.AddBread(breadOptions[0], amount);
+            break;
+          case "bagel":
+            order.AddBread(breadOptions[1], amount);
+            break;
+          case "loaf":
+            order.AddBread(breadOptions[2], amount);
+            break;
+          case "bolillio":
+            order.AddBread(breadOptions[3], amount);
+            break;
+          case "donut":
+            order.AddPastry(pastryOptions[0], amount);
+            break;
+          case "cookie":
+            order.AddPastry(pastryOptions[1], amount);
+            break;
+          case "muffin":
+            order.AddPastry(pastryOptions[2], amount);
+            break;
+          case "chocoroll":
+            order.AddPastry(pastryOptions[3], amount);
+            break;
+          default:
+            TypeSlow("Sorry invalid Type");
+            Ordering(breadOptions, pastryOptions, order);
+            break;
+        }
+        TypeSlow("Would You like to add something else? y/n");
+        istring res = Console.ReadLine().ToLower();
+        if (yesOrNo(res))
+        {
+          Ordering(breadOptions, pastryOptions, order);
         }
         else
         {
-          TypeSlow("Sorry invalid amount");
-          Ordering(breadOptions, pastryOptions, order);
+
         }
-
-
-      }
-      else if (type == "pastry")
-      {
-
       }
       else
       {
-        TypeSlow("Sorry Invalid input .... try again");
-        Ordering();
+        TypeSlow("Sorry invalid amount");
+        Ordering(breadOptions, pastryOptions, order);
       }
+
+
     }
+
+
     public static void Main()
     {
       Bread baguette = new Bread("Baguette", 2);
@@ -173,7 +171,7 @@ namespace Bakery
       {
         Order myOrder = new Order();
         DisplayOptions(availabeBread, availabePastry);
-        TypeSlow("Would you like to order a bread or a pastry");
+
 
 
       }
