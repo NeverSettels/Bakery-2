@@ -92,9 +92,12 @@ namespace Bakery
       }
 
     }
-    public static void SummerizeOrder()
+    public static void SummerizeOrder(Order order)
     {
-
+      TypeSlow("Here is what you ordered: ");
+      DisplayOptions(order.BreadOrder, order.PastryOrder);
+      TypeSlow($"And you Total is {order.SumTotal()}");
+      TypeSlow($"Thank you and have a great day!");
     }
     public static Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions, Order order)
     {
@@ -142,7 +145,7 @@ namespace Bakery
         }
         else
         {
-          SummerizeOrder();
+          SummerizeOrder(order);
         }
       }
       else
@@ -175,6 +178,7 @@ namespace Bakery
       {
         Order myOrder = new Order();
         DisplayOptions(availabeBread, availabePastry);
+        Ordering(availabeBread, availabePastry, myOrder);
 
 
 
