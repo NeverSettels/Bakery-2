@@ -36,7 +36,7 @@ _A small Console application that will allow a user to purchase bread and pastri
 
 ## **Known Bugs**
 
-There are no known bugs at this time.
+* _Unhandled Exception: System.NullReferenceException: Object reference not set to an instance of an object._ **On bread/pastry selection**
 
 ## **Support and contact details**
 

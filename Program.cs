@@ -103,6 +103,7 @@ namespace Bakery
     {
       TypeSlow("Enter the name of what you want: ");
       string selection = Console.ReadLine().ToLower();
+      TypeSlow($"Enter how many {selection} you would like? ");
       int amount = int.Parse(Console.ReadLine());
       if (amount > 0)
       {
