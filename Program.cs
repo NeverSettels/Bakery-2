@@ -92,16 +92,22 @@ namespace Bakery
       }
 
     }
+    public static Ordering()
+    {
+      TypeFast("would You like to order bread or pastry? bread/pastry");
+      string type = Console.ReadLine().ToLower();
+
+    }
     public static void Main()
     {
       Bread baguette = new Bread("Baguette", 2);
-      Bread sour = new Bread("Sour Dough", 3);
+      Bread bagel = new Bread("Bagel", 3);
       Bread loaf = new Bread("Loaf", 3);
-      Bread olive = new Bread("Olive Bread", 4);
-      Pastry donut = new Pastry("donut", 2);
-      Pastry bear = new Pastry("Bear Claw", 3);
+      Bread bolillo = new Bread("Bolillo", 4);
+      Pastry donut = new Pastry("Donut", 2);
+      Pastry cookie = new Pastry("Cookie", 3);
       Pastry muffin = new Pastry("Muffin", 3);
-      Pastry choco = new Pastry("Chocolate muffin", 4);
+      Pastry chocoroll = new Pastry("Chocoroll", 4);
       List<Bread> availabeBread = new List<Bread> { baguette, sour, loaf, olive };
       List<Pastry> availabePastry = new List<Pastry> { donut, bear, muffin, choco };
 
@@ -112,6 +118,7 @@ namespace Bakery
       {
         Order myOrder = new Order();
         DisplayOptions(availabeBread, availabePastry);
+        TypeSlow("Would you like to order a bread or a pastry");
 
       }
       else
