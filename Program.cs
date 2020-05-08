@@ -96,7 +96,19 @@ namespace Bakery
     {
       TypeFast("would You like to order bread or pastry? bread/pastry");
       string type = Console.ReadLine().ToLower();
+      if (type == "bread")
+      {
 
+      }
+      else if (type == "pastry")
+      {
+
+      }
+      else
+      {
+        TypeSlow("Sorry Invalid input .... try again");
+        Ordering();
+      }
     }
     public static void Main()
     {
@@ -108,8 +120,8 @@ namespace Bakery
       Pastry cookie = new Pastry("Cookie", 3);
       Pastry muffin = new Pastry("Muffin", 3);
       Pastry chocoroll = new Pastry("Chocoroll", 4);
-      List<Bread> availabeBread = new List<Bread> { baguette, sour, loaf, olive };
-      List<Pastry> availabePastry = new List<Pastry> { donut, bear, muffin, choco };
+      List<Bread> availabeBread = new List<Bread> { baguette, bagel, loaf, bolillo };
+      List<Pastry> availabePastry = new List<Pastry> { donut, cookie, muffin, choco };
 
       TypeFast(_bakeryArt);
       TypeSlow("You see Pierre's in the distance would you like to go in? y/n ");
@@ -119,6 +131,7 @@ namespace Bakery
         Order myOrder = new Order();
         DisplayOptions(availabeBread, availabePastry);
         TypeSlow("Would you like to order a bread or a pastry");
+
 
       }
       else
