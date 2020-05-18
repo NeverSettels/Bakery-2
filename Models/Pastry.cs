@@ -15,6 +15,19 @@ namespace Bakery.Models
       Price = price;
     }
 
+    public static int PastryDiscount(List<Pastry> PastryOrder)
+    {
+      int numPastries = PastryOrder.Count;
+      int pastryTotal = 0;
+      int pastryDiscount = numPastries / 3;
+      foreach (Pastry pastry in PastryOrder)
+      {
+        pastryTotal += pastry.Price;
+      }
+      pastryTotal -= pastryDiscount;
+      return pastryTotal;
+    }
+
   }
 
 }

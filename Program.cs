@@ -92,68 +92,95 @@ namespace Bakery
       }
 
     }
-    public static void SummerizeOrder(Order order)
+    public static void SummerizeOrder(List<Bread> selectedBread, List<Pastry> selectedPastry)
     {
+      int breadTotal = Bread.BreadDiscount(selectedBread);
+      int pastryTotal = Pastry.PastryDiscount(selectedPastry);
       TypeSlow("Here is what you ordered: ");
-      DisplayOptions(order.BreadOrder, order.PastryOrder);
-      TypeSlow($"And you Total is {order.SumTotal(order)}");
+      DisplayOptions(selectedBread, selectedPastry);
+      TypeSlow($"And you Total is {breadTotal + pastryTotal}");
       TypeSlow($"Thank you and have a great day!");
     }
-    public static void Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions, Order order)
+    public static void Ordering(List<Bread> breadOptions, List<Pastry> pastryOptions, List<Bread> selectedBread, List<Pastry> selectedPastry)
     {
+      //List<Bread> selected = selectedBread;
       TypeSlow("Enter the name of what you want: ");
       string selection = Console.ReadLine().ToLower();
-      TypeSlow($"Enter how many {selection} you would like? ");
+      TypeSlow($"Enter how many {selection}s you would like? ");
       int amount = int.Parse(Console.ReadLine());
       if (amount > 0)
       {
         switch (selection)
         {
           case "baguette":
-            Console.WriteLine(breadOptions[0] + " " + amount.ToString());
-            order.AddBread(breadOptions[0], amount);
+            for (int i = 0; i <= amount; i++)
+            {
+              selectedBread.Add(breadOptions[0]);
+            }
             break;
           case "bagel":
-            order.AddBread(breadOptions[1], amount);
+            for (int i = 0; i <= amount; i++)
+            {
+              selectedBread.Add(breadOptions[1]);
+            }
             break;
           case "loaf":
-            order.AddBread(breadOptions[2], amount);
+            for (int i = 0; i <= amount; i++)
+            {
+              selectedBread.Add(breadOptions[2]);
+            }
             break;
           case "bolillio":
-            order.AddBread(breadOptions[3], amount);
+            for (int i = 0; i <= amount; i++)
+            {
+              selectedBread.Add(breadOptions[3]);
+            }
             break;
+          //[pastries]
           case "donut":
-            order.AddPastry(pastryOptions[0], amount);
+            for (int i = 0; i <= amount; i++)
+            {
+              selectedPastry.Add(pastryOptions[0]);
+            }
             break;
           case "cookie":
-            order.AddPastry(pastryOptions[1], amount);
+            for (int i = 0; i <= amount; i++)
+            {
+              selectedPastry.Add(pastryOptions[1]);
+            }
             break;
           case "muffin":
-            order.AddPastry(pastryOptions[2], amount);
+            for (int i = 0; i <= amount; i++)
+            {
+              selectedPastry.Add(pastryOptions[2]);
+            }
             break;
           case "chocoroll":
-            order.AddPastry(pastryOptions[3], amount);
+            for (int i = 0; i <= amount; i++)
+            {
+              selectedPastry.Add(pastryOptions[3]);
+            }
             break;
           default:
             TypeSlow("Sorry invalid Type");
-            Ordering(breadOptions, pastryOptions, order);
+            Ordering(breadOptions, pastryOptions, selectedBread, selectedPastry);
             break;
         }
         TypeSlow("Would You like to add something else? y/n");
         string res = Console.ReadLine().ToLower();
         if (yesOrNo(res))
         {
-          Ordering(breadOptions, pastryOptions, order);
+          Ordering(breadOptions, pastryOptions, selectedBread, selectedPastry);
         }
         else
         {
-          SummerizeOrder(order);
+          SummerizeOrder(selectedBread, selectedPastry);
         }
       }
       else
       {
         TypeSlow("Sorry invalid amount");
-        Ordering(breadOptions, pastryOptions, order);
+        Ordering(breadOptions, pastryOptions, selectedBread, selectedPastry);
       }
     }
     public static void Main()
@@ -168,15 +195,16 @@ namespace Bakery
       Pastry chocoroll = new Pastry("Chocoroll", 4);
       List<Bread> availabeBread = new List<Bread> { baguette, bagel, loaf, bolillo };
       List<Pastry> availabePastry = new List<Pastry> { donut, cookie, muffin, chocoroll };
-
+      List<Bread> selectedBread = new List<Bread> { };
+      List<Pastry> selectedPastry = new List<Pastry> { };
       TypeFast(_bakeryArt);
       TypeSlow("You see Pierre's in the distance would you like to go in? y/n ");
       string res = Console.ReadLine().ToLower();
       if (yesOrNo(res))
       {
-        Order myOrder = new Order();
+
         DisplayOptions(availabeBread, availabePastry);
-        Ordering(availabeBread, availabePastry, myOrder);
+        Ordering(availabeBread, availabePastry, selectedBread, selectedPastry);
       }
       else
       {

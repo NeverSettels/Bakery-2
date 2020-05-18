@@ -13,6 +13,19 @@ namespace Bakery.Models
       TypeBread = typeBread;
       Price = price;
     }
-  }
 
+    public static int BreadDiscount(List<Bread> BreadOrder)
+    {
+      int numBreads = BreadOrder.Count;
+      int breadTotal = 0;
+      int numFreeB = numBreads % 2;
+      for (int i = 0; i < numBreads - numFreeB; i++)
+      {
+        breadTotal += BreadOrder[i].Price;
+      }
+      return breadTotal;
+    }
+
+
+  }
 }
