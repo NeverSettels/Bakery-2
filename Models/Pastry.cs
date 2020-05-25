@@ -24,10 +24,20 @@ namespace Bakery.Models
       {
         pastryTotal += pastry.Price;
       }
-      pastryTotal -= pastryDiscount;
+      TypeSlow($"Everytime you buy 3 pastries you get $5 off! you got ${(pastryDiscount * 5)} off this Order!");
+      pastryTotal -= (pastryDiscount * 5);
       return pastryTotal;
     }
 
+    public static void TypeSlow(string str)
+    {
+      for (int i = 0; i < str.Length; i++)
+      {
+        Console.Write(str[i]);
+        System.Threading.Thread.Sleep(50);
+      }
+      Console.WriteLine();
+    }
   }
 
 }
