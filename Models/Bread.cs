@@ -18,12 +18,12 @@ namespace Bakery.Models
     {
       int numBreads = BreadOrder.Count;
       int breadTotal = 0;
-      int numFreeB = numBreads % 2;
-      for (int i = 0; i < numBreads - numFreeB - 1; i++)
+      int numFreeB = numBreads / 3;
+      for (int i = 0; i < numBreads - numFreeB; i++)
       {
         breadTotal += BreadOrder[i].Price;
       }
-      TypeSlow($"You bought {numBreads} and thanks to our buy 2 get 1 free discount you get {numFreeB} pieces for free");
+      TypeSlow($"You bought {numBreads} and thanks to our buy 2 get one free discount you get {numFreeB} pieces for free");
       return breadTotal;
     }
 
