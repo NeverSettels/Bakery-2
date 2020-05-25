@@ -113,50 +113,50 @@ namespace Bakery
         switch (selection)
         {
           case "baguette":
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
               selectedBread.Add(breadOptions[0]);
             }
             break;
           case "bagel":
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
               selectedBread.Add(breadOptions[1]);
             }
             break;
           case "loaf":
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
               selectedBread.Add(breadOptions[2]);
             }
             break;
           case "bolillio":
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
               selectedBread.Add(breadOptions[3]);
             }
             break;
           //[pastries]
           case "donut":
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
               selectedPastry.Add(pastryOptions[0]);
             }
             break;
           case "cookie":
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
               selectedPastry.Add(pastryOptions[1]);
             }
             break;
           case "muffin":
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
               selectedPastry.Add(pastryOptions[2]);
             }
             break;
           case "chocoroll":
-            for (int i = 0; i <= amount; i++)
+            for (int i = 0; i < amount; i++)
             {
               selectedPastry.Add(pastryOptions[3]);
             }
